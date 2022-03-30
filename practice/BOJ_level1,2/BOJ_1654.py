@@ -6,18 +6,18 @@ inp = []
 for _ in range(n):
     inp.append(int(sys.stdin.readline().rstrip()))
 
-start = 0
+start = 1
 end = max(inp)
 mid = (start + end) // 2
 
 result = 0
 while (start <= end):
-# for _ in range(5):
     sum = 0
     mid = (start + end) // 2
 
     for i in inp:
-        sum += (i // mid)
+        if mid:
+            sum += (i // mid)
     
     if sum < k:
         end = mid - 1
@@ -25,6 +25,5 @@ while (start <= end):
         result = mid
         start = mid + 1
         
-
 print(result)
 
